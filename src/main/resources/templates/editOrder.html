@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование cтатуса товара</title>
+</head>
+<body>
+<h3>Редактирование статуса товара</h3>
+<form th:method="POST" th:action="@{/admin/adminOrders/edit/{id}(id=${orders.getId()})}" th:object="${orders}" enctype="multipart/form-data">
+<!--    <label for="status">Выберите новый статус заказа: </label>-->
+<!--    <select name="status" th:field="*{status}" id="status">-->
+<!--        <div th:each="element : ${orders}">-->
+<!--            <option th:text="${element.getStatus()}" th:value="${element.getStatus()}">-->
+<!--        </div> &lt;!&ndash;Принят, Оформлен, Ожидает, Получен&ndash;&gt;-->
+<!--&lt;!&ndash;        <option th:value =  >Принят</option>&ndash;&gt;-->
+<!--&lt;!&ndash;        <option th:value = "Оформлен">Оформлен</option>&ndash;&gt;-->
+<!--&lt;!&ndash;        <option th:value = "Ожидает">Ожидает</option>&ndash;&gt;-->
+<!--&lt;!&ndash;        <option th:value = "Получен">Получен</option>&ndash;&gt;-->
+<!--        </select>-->
+
+<!-- Перебрал несколько разных вариантов остановился на этом пока что (Этот с численными значениями в value тоже пробовал) все равно ошибка...-->
+
+    <label for="Принят">Принят</label>
+    <input type="radio" name="stat" th:field="*{status}" th:value="Принят" id="Принят">
+    <br>
+    <label for="Оформлен">Оформлен</label>
+    <input type="radio" name="stat" th:field="*{status}" th:value="Оформлен" id="Оформлен">
+    <br>
+    <label for="Ожидает">Ожидает</label>
+    <input type="radio" name="stat" th:field="*{status}" th:value="Ожидает" id="Ожидает">
+    <br>
+    <label for="Получен">Получен</label>
+    <input type="radio" name="stat" th:field="*{status}" th:value="Получен" id="Получен">
+    <br>
+    <input type="submit" value="Редактировать">
+</form>
+</body>
+</html>
